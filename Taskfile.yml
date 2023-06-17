@@ -1,7 +1,0 @@
-version: 3
-tasks:
-  make-solution:
-    desc: Setup for new solution
-    cmds:
-      - mkdir ./cmd/{{ .CLI_ARGS }}
-      - cp ./cmd/example/* ./cmd/{{ .CLI_ARGS }}
