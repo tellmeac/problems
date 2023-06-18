@@ -12,13 +12,22 @@ var (
 )
 
 func main() {
-	var n int
+	defer func() {
+		_ = writer.Flush()
+	}()
 
-	_, _ = fmt.Fscanf(reader, "%d\n", &n)
+	var n int
+	read("%d", &n)
 
 	for ; n > 0; n-- {
-		_, _ = fmt.Fprintf(writer, "%d\n", n)
+		write("%d", n)
 	}
+}
 
-	_ = writer.Flush()
+func read(format string, a ...any) {
+	_, _ = fmt.Fscanf(reader, format, a...)
+}
+
+func write(format string, a ...any) {
+	_, _ = fmt.Fprintf(writer, format, a...)
 }
