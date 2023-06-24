@@ -25,7 +25,7 @@ func (s *StickInfo) Add(color byte) {
 func (s *StickInfo) IsCompleted() bool {
 	var r int
 
-	for _, _ = range s.Rings {
+	for range s.Rings {
 		r++
 	}
 

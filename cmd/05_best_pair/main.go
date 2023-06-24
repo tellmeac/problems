@@ -28,8 +28,6 @@ func main() {
 		return
 	}
 
-	const deposit = 1000
-
 	bestBuyDay := 0
 	BestCellDay := 0
 	minCostDay := 0
