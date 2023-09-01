@@ -4,7 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"sort"
+	"time"
 )
 
 var (
@@ -20,31 +20,24 @@ func main() {
 	var n int
 	read("%d\n", &n)
 
-	users := make([]int, n)
-	for idx := 0; idx < n; idx++ {
-		read("%d", &users[idx])
+	ans := 1
+
+	var raw string
+	read("%s\n", &raw)
+	current, _ := time.Parse("15:04:05", raw)
+
+	for idx := 1; idx < n; idx++ {
+		read("%s\n", &raw)
+		next, _ := time.Parse("15:04:05", raw)
+
+		if current.After(next) || current == next {
+			ans++
+		}
+
+		current = next
 	}
 
-	sort.Slice(users, func(i, j int) bool {
-		return users[i] < users[j]
-	})
-
-	l := 0
-	r := 0
-	ans := 0
-	for idx := 0; idx < n; idx++ {
-		for l < n && users[l] <= (users[idx]/2)+7 {
-			l++
-		}
-		for r < n && users[r] <= users[idx] {
-			r++
-		}
-
-		if r > l+1 {
-			ans += r - l - 1
-		}
-	}
-	write("%d\n", ans)
+	write("%d", ans)
 }
 
 func read(format string, a ...any) {
