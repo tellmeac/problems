@@ -85,10 +85,3 @@ func read(format string, a ...any) {
 func write(format string, a ...any) {
 	_, _ = fmt.Fprintf(writer, format, a...)
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

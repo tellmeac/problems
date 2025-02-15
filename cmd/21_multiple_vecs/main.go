@@ -33,14 +33,3 @@ func Scalar(a, b []Zip) int {
 
 	return ans
 }
-
-func min(a, b int) int {
-	if a > b {
-		return b
-	}
-	return a
-}
-
-//func main() {
-//	fmt.Print(Scalar([]Zip{{1, 3}}, []Zip{{1, 2}, {10, 1}}))
-//}

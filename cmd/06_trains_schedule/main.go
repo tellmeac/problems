@@ -50,10 +50,3 @@ func main() {
 
 	_ = writer.Flush()
 }
-
-func min(a, b float64) float64 {
-	if a > b {
-		return b
-	}
-	return a
-}
