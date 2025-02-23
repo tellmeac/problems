@@ -9,7 +9,7 @@ var (
 )
 
 type Item struct {
-	Value    interface{}
+	Value    any
 	Priority int
 
 	index int
