@@ -4,9 +4,7 @@ import (
 	"container/heap"
 )
 
-var (
-	_ heap.Interface = &PriorityQueue{}
-)
+var _ heap.Interface = &PriorityQueue{}
 
 type Item struct {
 	Value    any
